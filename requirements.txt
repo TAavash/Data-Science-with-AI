@@ -1,2 +1,6 @@
 numpy
-padas
+- numpy basics array understandings installation using pip install numpy dimensional arrays shape resize vectorization.
+pandas
+- pandas basic data frame understandings loc, iloc, data structure
+csv
+- new folder and file
