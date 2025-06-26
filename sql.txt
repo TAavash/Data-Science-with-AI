@@ -1,0 +1,48 @@
+Create database DATASCIENCE_AI;
+
+CREATE TABLE student(
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR (100) NOT NULL,
+    class INT (10) NOT NULL,
+);
+
+CREATE TABLE marks(
+    marks_id INT AUTO_INCREMENT PRIMARY KEY,
+    sub VARCHAR (100) NOT NULL,
+    marks INT (3) NOT NULL,
+    FOREIGN KEY (student_id) REFERENCES student(student_id);
+);
+
+INSERT INTO student (name, class) VALUES ('aavash', 'L6');
+
+
+SELECT * FROM student;
+
+Create database db_test;
+
+CREATE TABLE employees(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR (100) NOT NULL,
+    address VARCHAR (100) NOT NULL,
+);
+
+CREATE TABLE employees_profiles(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    position VARCHAR (100) NOT NULL,
+    role VARCHAR (50) NOT NULL,
+    salary INT (100) NOT NULL,
+    FOREIGN KEY (employee_id) REFERENCES employees(id);
+);
+
+CREATE TABLE employees_summary(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    description VARCHAR (255) NULL,
+    FOREIGN KEY (employee_id) REFERENCES employees(id);
+);
+
+INSERT INTO employees (name, address) VALUES ('aavash', 'imadol'), ('aryam', 'mangalbazar'), ('dalle', 'kupondole');
+INSERT INTO employees_profiles (position, role, salary, employee_id) VALUES ('CEO', 'UI/UX', 24000, 1), ('Manager', 'Content Creator', 24000, 2), ('Staff', 'user', 24000, 3);
+INSERT INTO employees_summary (description, employee_id) VALUES ('work', 1), ('work', 2), ('kaam chor', 3);
+
+UPDATE employees_profiles SET salary = 10000 WHERE position = 'UI/UX';
+DELETE employees WHERE role = 'user';
